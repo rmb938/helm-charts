@@ -1,0 +1,12 @@
+apiVersion: v2
+name: prometheus-operator-crd
+description: Prometheus Operator CRDS
+type: application
+version: 0.1.0
+appVersion: 0.38.1
+home: https://github.com/rmb938/helm-charts
+maintainers:
+  - name: rmb938
+
+# Find CRDS here, don't forget to switch to the correct version
+# https://github.com/coreos/prometheus-operator/tree/master/example/prometheus-operator-crd
