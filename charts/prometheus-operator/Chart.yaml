@@ -3,7 +3,7 @@ name: prometheus-operator
 description: Prometheus Operator
 type: application
 version: 0.1.0
-appVersion: 0.38.1
+appVersion: v0.38.1
 home: https://github.com/rmb938/helm-charts
 maintainers:
   - name: rmb938
