@@ -3,6 +3,19 @@ entries:
   prometheus-operator:
   - apiVersion: v2
     appVersion: v0.38.1
+    created: "2020-04-23T23:30:06.139735484Z"
+    description: Prometheus Operator
+    digest: ef710ce5b792deef0a1ad666e86a2c858999dc8684049d811e6f19bf2585cc93
+    home: https://github.com/rmb938/helm-charts
+    maintainers:
+    - name: rmb938
+    name: prometheus-operator
+    type: application
+    urls:
+    - https://github.com/rmb938/helm-charts/releases/download/prometheus-operator-0.1.2/prometheus-operator-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: v0.38.1
     created: "2020-04-23T23:18:25.487514157Z"
     description: Prometheus Operator
     digest: 8d9644e04719a172890d701c53be0a0b366c45c59f3089acaa517a2899c85896
