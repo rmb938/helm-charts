@@ -1,6 +1,33 @@
 apiVersion: v1
 entries:
+  prometheus-operator:
+  - apiVersion: v2
+    appVersion: v0.38.1
+    created: "2020-04-23T22:34:32.770967845Z"
+    description: Prometheus Operator
+    digest: 522dce40da1c54e12cd32b60cf4b360eaa01e78a4fd2044675b217e5b30a5584
+    home: https://github.com/rmb938/helm-charts
+    maintainers:
+    - name: rmb938
+    name: prometheus-operator
+    type: application
+    urls:
+    - https://github.com/rmb938/helm-charts/releases/download/prometheus-operator-0.1.0/prometheus-operator-0.1.0.tgz
+    version: 0.1.0
   prometheus-operator-crd:
+  - apiVersion: v2
+    appVersion: v0.38.1
+    created: "2020-04-23T22:34:32.855739961Z"
+    description: Prometheus Operator CRDS
+    digest: d066091d62e3a2810ba2cc0ca0ee14006e3d1c96119f4655e57f558c7b16f04d
+    home: https://github.com/rmb938/helm-charts
+    maintainers:
+    - name: rmb938
+    name: prometheus-operator-crd
+    type: application
+    urls:
+    - https://github.com/rmb938/helm-charts/releases/download/prometheus-operator-crd-0.1.1/prometheus-operator-crd-0.1.1.tgz
+    version: 0.1.1
   - apiVersion: v2
     appVersion: 0.38.1
     created: "2020-04-23T00:20:20.157992844Z"
