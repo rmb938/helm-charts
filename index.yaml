@@ -1,5 +1,19 @@
 apiVersion: v1
 entries:
+  cert-manager-crd:
+  - apiVersion: v2
+    appVersion: v0.14.2
+    created: "2020-04-26T00:04:18.845160264Z"
+    description: Cert Manager CRDS
+    digest: 1ab42415c1115ecf50f36f42f947bb48f0d1535896e261f31d4af304eda461d5
+    home: https://github.com/rmb938/helm-charts
+    maintainers:
+    - name: rmb938
+    name: cert-manager-crd
+    type: application
+    urls:
+    - https://github.com/rmb938/helm-charts/releases/download/cert-manager-crd-0.1.0/cert-manager-crd-0.1.0.tgz
+    version: 0.1.0
   prometheus-operator:
   - apiVersion: v2
     appVersion: v0.38.1
