@@ -32,10 +32,6 @@ podSecurityContext:
 securityContext:
   allowPrivilegeEscalation: false
 
-serviceMonitor:
-  enabled: false
-  additionalLabels: {}
-
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
@@ -53,3 +49,22 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+webhook:
+  enabled: false
+
+  certificate:
+    create: true
+    # The name of the cert-manager certificate to use
+    # If not set and create is true, a name is generated using the fullname template
+    name:
+
+    # If create is false, the name of the secret created by the certificate
+    # If not set and create is true, a name is generated using the fullname template
+    secretName:
+
+    # The cert-manager issuer configuration for the certificate, only needed if webhook.certificate.create is true
+    issuerRef:
+      name: ca-issuer
+      kind: Issuer
+      group: cert-manager.io

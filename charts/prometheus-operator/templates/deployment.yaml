@@ -21,6 +21,13 @@ spec:
       serviceAccountName: {{ include "prometheus-operator.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if .Values.webhook.enabled -}}
+      volumes:
+        - name: tls-secret
+          secret:
+            defaultMode: 420
+            secretName: {{ include "prometheus-operator.webhookCertificateSecretName" . }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -34,6 +41,12 @@ spec:
             - --config-reloader-image=jimmidyson/configmap-reload:v0.3.0
             - --prometheus-config-reloader="{{ .Values.prometheusConfigReloader.image.repository }}:{{ .Values.prometheusConfigReloader.image.tag }}"
             - --manage-crds=false
+          {{- if .Values.webhook.enabled -}}
+          volumeMounts:
+            - name: tls-secret
+              readOnly: true
+              mountPath: /etc/tls/private
+          {{- end }}
           ports:
             - name: http
               containerPort: 8080

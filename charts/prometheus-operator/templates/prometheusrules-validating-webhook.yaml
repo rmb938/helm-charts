@@ -1,0 +1,28 @@
+{{- if .Values.webhook.enabled -}}
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: {{ include "prometheus-operator.fullname" . }}-prometheusrules
+  labels:
+    {{- include "prometheus-operator.labels" . | nindent 4 }}
+  annotations:
+    cert-manager.io/inject-ca-from: "{{ .Release.Namespace }}/{{ include "prometheus-operator.webhookCertificateName" . }}"
+webhooks:
+  - name: prometheusrulemutate.monitoring.coreos.com
+    failurePolicy: Fail
+    rules:
+      - apiGroups:
+          - monitoring.coreos.com
+        apiVersions:
+          - "*"
+        resources:
+          - prometheusrules
+        operations:
+          - CREATE
+          - UPDATE
+    clientConfig:
+      service:
+        namespace: {{ .Release.Namespace }}
+        name: {{ include "prometheus-operator.fullname" . }}
+        path: /admission-prometheusrules/validate
+{{- end -}}
