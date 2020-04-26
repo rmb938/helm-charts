@@ -61,3 +61,25 @@ Create the name of the service account to use
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Create the name of the webhook certificate to use
+*/}}
+{{- define "prometheus-operator.webhookCertificateName" -}}
+{{- if .Values.webhook.certificate.create -}}
+    {{ default (printf "%s-webhook-cert" (include "prometheus-operator.fullname" .)) .Values.webhook.certificate.name }}
+{{- else -}}
+    {{ default "default" .Values.webhook.certificate.name }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Create the name of the webhook certificate secret to use
+*/}}
+{{- define "prometheus-operator.webhookCertificateSecretName" -}}
+{{- if .Values.webhook.certificate.create -}}
+    {{ default (printf "%s-webhook-cert" (include "prometheus-operator.fullname" .)) .Values.webhook.certificate.secretName }}
+{{- else -}}
+    {{ default "default" .Values.webhook.certificate.secretName }}
+{{- end -}}
+{{- end -}}
