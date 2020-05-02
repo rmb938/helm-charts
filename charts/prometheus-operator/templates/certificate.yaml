@@ -13,6 +13,6 @@ spec:
     - {{ include "prometheus-operator.fullname" . }}.{{ .Release.Namespace }}
     - {{ include "prometheus-operator.fullname" . }}.{{ .Release.Namespace }}.svc
   issuerRef:
-    {{ .Values.webhook.certificate.issuerRef | nindent 4}}
+    {{- include ".Values.webhook.certificate.issuerRef" . | nindent 4 }}
 {{- end -}}
 {{- end -}}
