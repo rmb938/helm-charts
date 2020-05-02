@@ -63,6 +63,20 @@ Create the name of the service account to use
 {{- end -}}
 
 {{/*
+Create the name of the kubelet service namespace
+*/}}
+{{- define "prometheus-operator.kubeletNamespace" -}}
+    {{ default .Release.Namespace .Values.kubeletService.namespace }}
+{{- end -}}
+
+{{/*
+Create the name of the kubelet service names
+*/}}
+{{- define "prometheus-operator.kubeletName" -}}
+    {{ default "kubelet" .Values.kubeletService.name }}
+{{- end -}}
+
+{{/*
 Create the name of the webhook certificate to use
 */}}
 {{- define "prometheus-operator.webhookCertificateName" -}}

@@ -35,7 +35,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
-            - --kubelet-service=kube-system/kubelet
+            - --kubelet-service={{ include "prometheus-operator.kubeletNamespace" . }}/{{ include "prometheus-operator.kubeletName" . }}
             - --logtostderr=true
             - --localhost=127.0.0.1
             - --config-reloader-image=jimmidyson/configmap-reload:v0.3.0
