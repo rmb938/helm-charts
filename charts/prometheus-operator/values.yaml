@@ -7,7 +7,7 @@ image:
 prometheusConfigReloader:
   image:
     repository: quay.io/coreos/prometheus-config-reloader
-    tag: v0.38.0
+    tag: v0.38.1
 
 imagePullSecrets: []
 nameOverride: ""
@@ -49,6 +49,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+kubeletService:
+  namespace:
+  name:
 
 webhook:
   enabled: false
