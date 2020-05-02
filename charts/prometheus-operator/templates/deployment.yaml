@@ -42,6 +42,10 @@ spec:
             - --prometheus-config-reloader="{{ .Values.prometheusConfigReloader.image.repository }}:{{ .Values.prometheusConfigReloader.image.tag }}"
             - --manage-crds=false
           {{- if .Values.webhook.enabled }}
+            - --web.enable-tls=true
+            - --web.client-ca-file=""
+          {{- end }}
+          {{- if .Values.webhook.enabled }}
           volumeMounts:
             - name: tls-secret
               readOnly: true
