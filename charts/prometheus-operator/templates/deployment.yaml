@@ -21,13 +21,6 @@ spec:
       serviceAccountName: {{ include "prometheus-operator.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      {{- if .Values.webhook.enabled }}
-      volumes:
-        - name: tls-secret
-          secret:
-            defaultMode: 420
-            secretName: {{ include "prometheus-operator.webhookCertificateSecretName" . }}
-      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -38,23 +31,10 @@ spec:
             - --kubelet-service={{ include "prometheus-operator.kubeletNamespace" . }}/{{ include "prometheus-operator.kubeletName" . }}
             - --logtostderr=true
             - --localhost=127.0.0.1
-            - --config-reloader-image=jimmidyson/configmap-reload:v0.3.0
-            - --prometheus-config-reloader="{{ .Values.prometheusConfigReloader.image.repository }}:{{ .Values.prometheusConfigReloader.image.tag }}"
-            - --manage-crds=false
-          {{- if .Values.webhook.enabled }}
-            - --web.enable-tls=true
-            - --web.client-ca-file=""
-          {{- end }}
-          {{- if .Values.webhook.enabled }}
-          volumeMounts:
-            - name: tls-secret
-              readOnly: true
-              mountPath: /etc/tls/private
-          {{- end }}
+            - --prometheus-config-reloader="{{ .Values.prometheusConfigReloader.image.repository }}:{{ .Chart.AppVersion }}"
           ports:
-            - name: http
-              containerPort: 8080
-              protocol: TCP
+          - containerPort: 8080
+            name: http
           livenessProbe:
             httpGet:
               path: /healthz

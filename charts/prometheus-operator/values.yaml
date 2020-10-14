@@ -1,13 +1,12 @@
 replicaCount: 1
 
 image:
-  repository: quay.io/coreos/prometheus-operator
+  repository: quay.io/prometheus-operator/prometheus-operator
   pullPolicy: IfNotPresent
 
 prometheusConfigReloader:
   image:
-    repository: quay.io/coreos/prometheus-config-reloader
-    tag: v0.38.1
+    repository: quay.io/prometheus-operator/prometheus-config-reloader
 
 imagePullSecrets: []
 nameOverride: ""
@@ -53,22 +52,3 @@ affinity: {}
 kubeletService:
   namespace:
   name:
-
-webhook:
-  enabled: false
-
-  certificate:
-    create: true
-    # The name of the cert-manager certificate to use
-    # If not set and create is true, a name is generated using the fullname template
-    name:
-
-    # If create is false, the name of the secret created by the certificate
-    # If not set and create is true, a name is generated using the fullname template
-    secretName:
-
-    # The cert-manager issuer configuration for the certificate, only needed if webhook.certificate.create is true
-    issuerRef:
-      name: ca-issuer
-      kind: Issuer
-      group: cert-manager.io
