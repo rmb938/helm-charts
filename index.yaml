@@ -214,6 +214,19 @@ entries:
   xen-orchestra:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2020-10-15T23:43:55.829327162Z"
+    description: Xen Orchestra
+    digest: a0af5d6501febe9c5b81709ef1343a16c78e14ebc74c35694e5032cd3a515ff4
+    home: https://github.com/rmb938/helm-charts
+    maintainers:
+    - name: rmb938
+    name: xen-orchestra
+    type: application
+    urls:
+    - https://github.com/rmb938/helm-charts/releases/download/xen-orchestra-0.1.2/xen-orchestra-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2020-10-15T23:05:06.396189285Z"
     description: Xen Orchestra
     digest: 99960553ca86a82af47476c60349d2026b0adec50120d876268df4e22d43cdd6
