@@ -2,7 +2,7 @@ apiVersion: v2
 name: xen-orchestra
 description: Xen Orchestra
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: 0.0.1
 home: https://github.com/rmb938/helm-charts
 maintainers:
