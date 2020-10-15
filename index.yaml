@@ -211,4 +211,18 @@ entries:
     urls:
     - https://github.com/rmb938/helm-charts/releases/download/prometheus-operator-crd-0.1.0/prometheus-operator-crd-0.1.0.tgz
     version: 0.1.0
+  xen-orchestra:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2020-10-15T23:05:06.396189285Z"
+    description: Xen Orchestra
+    digest: 99960553ca86a82af47476c60349d2026b0adec50120d876268df4e22d43cdd6
+    home: https://github.com/rmb938/helm-charts
+    maintainers:
+    - name: rmb938
+    name: xen-orchestra
+    type: application
+    urls:
+    - https://github.com/rmb938/helm-charts/releases/download/xen-orchestra-0.1.1/xen-orchestra-0.1.1.tgz
+    version: 0.1.1
 generated: "2020-04-23T00:20:20.066729845Z"
